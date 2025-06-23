@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("/")
 public class TaskController {
     private final TaskService taskService;
 
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
+    }
+    @GetMapping(path ="/tasks")
+
+    public List<Task> getAllTasks() {
+        return taskService.findAll();
     }
 
 }
