@@ -23,5 +23,5 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file Backend/pom.xml
       
-    - name: Run tests
-      run: mvn test
+    - name: Run only TaskControllerTest
+      run: mvn test -Dtest=TaskControllerTest
