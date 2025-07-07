@@ -11,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -42,5 +43,18 @@ class TaskControllerTest {
         assertEquals(2, result.size());
         assertEquals("Test Task1", result.get(0).getTaskName());
         assertEquals("Test Task2", result.get(1).getTaskName());
+    }
+    @Test
+    void testGetTaskById_whenTaskExists() {
+        Task task = new Task();
+        task.setTaskName("Test TaskById");
+        task.setId(99);
+        when(taskService.getTaskById(99L)).thenReturn(task);
+
+        Task taskFound = taskService.getTaskById(99L);
+
+        assertNotNull(taskFound);
+        assertEquals("Test TaskById", taskFound.getTaskName());
+        verify(taskService, times(1)).getTaskById(99L);
     }
 }

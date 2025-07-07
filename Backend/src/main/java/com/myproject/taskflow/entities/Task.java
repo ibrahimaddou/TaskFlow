@@ -117,4 +117,8 @@ public class Task {
     public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
+
+    public void setId(long i) {
+        this.idTask = i;
+    }
 }
