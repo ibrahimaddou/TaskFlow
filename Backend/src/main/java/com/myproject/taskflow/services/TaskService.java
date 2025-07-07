@@ -1,6 +1,7 @@
 package com.myproject.taskflow.services;
 
 import com.myproject.taskflow.entities.Task;
+import com.myproject.taskflow.entities.TaskStatus;
 import com.myproject.taskflow.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -21,4 +22,8 @@ public class TaskService {
         return  taskRepository.findById(id).get();
     }
 
+
+    public  List<Task> getTasksByStatus(String status){
+        return taskRepository.findByStatus(status);
+    }
 }

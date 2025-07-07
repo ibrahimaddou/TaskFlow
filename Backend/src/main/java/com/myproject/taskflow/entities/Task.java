@@ -24,7 +24,7 @@ public class Task {
     @Column(name = "taskdescription")
     private String taskDescription;
     @Column(name = "taskstatus")
-    private String taskStatus =  "NOTSTARTED";
+    private String status = "NOTSTARTED";
     @Column(name = "deadline")
     private LocalDate deadline;
     @Column(name = "priority")
@@ -63,11 +63,11 @@ public class Task {
     }
 
     public String getTaskStatus() {
-        return taskStatus;
+        return status;
     }
 
-    public void setTaskStatus(String taskStatus) {
-        this.taskStatus = taskStatus;
+    public void setTaskStatus(String status) {
+        this.status = status;
     }
 
     public LocalDate getDeadline() {

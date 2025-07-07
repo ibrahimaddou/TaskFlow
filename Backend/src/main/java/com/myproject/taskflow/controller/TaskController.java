@@ -1,6 +1,7 @@
 package com.myproject.taskflow.controller;
 
 import com.myproject.taskflow.entities.Task;
+import com.myproject.taskflow.entities.TaskStatus;
 import com.myproject.taskflow.services.TaskService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,10 @@ public class TaskController {
     @GetMapping(path ="/tasks/{id}")
     public Task getTaskById(@PathVariable long id){
         return  taskService.getTaskById(id);
+    }
+    @GetMapping(path ="/tasks/status/{status}")
+    public List<Task> getTasksByStatus(@PathVariable String status){
+        return  taskService.getTasksByStatus(status);
     }
 
 }
