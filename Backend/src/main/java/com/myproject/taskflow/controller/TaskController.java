@@ -3,6 +3,7 @@ package com.myproject.taskflow.controller;
 import com.myproject.taskflow.entities.Task;
 import com.myproject.taskflow.services.TaskService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,10 @@ public class TaskController {
 
     public List<Task> getAllTasks() {
         return taskService.findAll();
+    }
+    @GetMapping(path ="/tasks/{id}")
+    public Task getTaskById(@PathVariable long id){
+        return  taskService.getTaskById(id);
     }
 
 }
