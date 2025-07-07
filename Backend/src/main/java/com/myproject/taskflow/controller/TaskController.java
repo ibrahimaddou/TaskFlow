@@ -3,10 +3,7 @@ package com.myproject.taskflow.controller;
 import com.myproject.taskflow.entities.Task;
 import com.myproject.taskflow.entities.TaskStatus;
 import com.myproject.taskflow.services.TaskService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,10 @@ public class TaskController {
     @GetMapping(path ="/tasks/status/{status}")
     public List<Task> getTasksByStatus(@PathVariable String status){
         return  taskService.getTasksByStatus(status);
+    }
+    @PostMapping(path = "/tasks")
+    public Task createTask(@RequestBody Task task ){
+        return  taskService.createTask(task);
     }
 
 }

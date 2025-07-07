@@ -26,4 +26,12 @@ public class TaskService {
     public  List<Task> getTasksByStatus(String status){
         return taskRepository.findByStatus(status);
     }
+
+    public Task createTask(Task task) {
+        if (task.getTaskStatus() == null) {
+            task.setTaskStatus("NOTSTARTED");
+        }
+        return taskRepository.save(task);
+    }
+
 }
