@@ -12,10 +12,10 @@ public class Person {
     private Long id;
 
     @Column(name = "prenom", nullable = false)
-    private String prenom;
+    private String firstName;
 
     @Column(name = "nom", nullable = false)
-    private String nom;
+    private String lastName;
 
     @Column(name = "mail", nullable = false, unique = true)
     private String mail;
@@ -24,14 +24,24 @@ public class Person {
     private String tel;
 
     // Constructors
-    public Person() {}
+    public Person() {
+    }
 
-    public Person(String prenom, String nom, String mail, String tel) {
-        this.prenom = prenom;
-        this.nom = nom;
+    public Person(Long id, String firstName, String lastName, String mail, String tel) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.mail = mail;
         this.tel = tel;
     }
+
+    public Person(String firstName, String lastName, String mail, String tel) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.tel = tel;
+    }
+
 
     public Long getId() {
         return id;
@@ -41,20 +51,20 @@ public class Person {
         this.id = id;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getNom() {
-        return nom;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getMail() {

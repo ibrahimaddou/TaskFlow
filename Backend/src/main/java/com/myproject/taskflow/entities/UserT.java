@@ -16,8 +16,8 @@ public class UserT extends Person {
     private String role = "EMPLOYEE";
     public UserT() {}
 
-    public UserT(String prenom, String nom, String mail, String tel, String username, String role) {
-        super(prenom, nom, mail, tel);
+    public UserT(String firstName, String lastName, String mail, String tel, String username, String role) {
+        super(firstName, lastName, mail, tel);
         this.username = username;
         this.role = role;
     }
